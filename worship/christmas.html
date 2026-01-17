@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 성탄 축하 예배</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #b3000c;
+            --deep-green: #0a4d28;
+            --gold: #d4af37;
+            --bg-dark: #051a0e;
+            --card-white: #fdfbf7;
+        }
+
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            font-family: 'Nanum Gothic', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* 배경 눈 내리는 효과 */
+        #snow-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 모바일 최적화 세로형 카드 */
+        .bulletin-card {
+            position: relative;
+            z-index: 1;
+            width: 95%;
+            max-width: 550px; /* 스마트폰 너비에 최적화 */
+            background-color: var(--card-white);
+            margin: 20px 0;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 6px double var(--gold);
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 2.2rem;
+            color: var(--primary-red);
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: var(--deep-green);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        /* 섹션 구분선 */
+        .section-header {
+            font-family: 'Nanum Myeongjo', serif;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 6px 20px;
+            display: inline-block;
+            margin: 30px 0 10px;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        /* 예배 순서 테이블 */
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .order-table td {
+            padding: 12px 5px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .item-name {
+            text-align: left;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .item-person {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+
+        /* 인터랙티브 버튼 */
+        .btn-action {
+            background-color: var(--deep-green);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.2s;
+        }
+        .btn-action:active { transform: scale(0.95); }
+        .btn-action.red { background-color: var(--primary-red); }
+
+        /* 찬양 메들리 리스트 스타일 */
+        .hymn-group {
+            background-color: #fffafa;
+            border: 1px solid #f0d0d0;
+            border-left: 5px solid var(--primary-red);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .hymn-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f9e1e1;
+        }
+        .hymn-row:last-child { border-bottom: none; }
+
+        /* 모달 (팝업창) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 450px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 30px;
+            color: var(--primary-red);
+            cursor: pointer;
+        }
+
+        .sheet-img { width: 100%; height: auto; border-radius: 5px; margin-top: 10px; border: 1px solid #eee; }
+
+        .reading-box {
+            text-align: left;
+            font-family: 'Nanum Myeongjo', serif;
+            line-height: 1.8;
+        }
+        .reading-box p { margin: 12px 0; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        .leader { color: var(--primary-red); font-weight: bold; }
+        .congregation { color: var(--deep-green); font-weight: bold; }
+
+        .verse-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8fbf8;
+            border-top: 2px solid var(--gold);
+            font-family: 'Nanum Myeongjo', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            margin: 20px 0;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="snow-canvas"></canvas>
+
+    <div class="bulletin-card">
+        <header>
+            <div style="font-size: 3rem;">🎄</div>
+            <h1>성탄 축하 예배</h1>
+            <p class="subtitle">2025년 12월 25일(목) 오전 10:00</p>
+        </header>
+
+        <div class="section-header">1부: 찬양과 기도</div>
+        <table class="order-table">
+            <tr><td class="item-name">개회 기문 (주기도문)</td><td class="item-person">다함께</td></tr>
+            <tr>
+                <td colspan="2">
+                    <div class="hymn-group">
+                        <strong style="color:var(--primary-red); margin-bottom:10px; display:block;">[성탄 찬송 메들리]</strong>
+                        <div class="hymn-row"><span>126장 천사 찬송하기를</span> <button class="btn-action" onclick="openSheet('126장', './hyms/126.jpg')"><i class="fa-solid fa-music"></i> 악보</button></div>
+                        <div class="hymn-row"><span>120장 오 베들레헴 작은 골</span> <button class="btn-action" onclick="openSheet('120장', './hyms/120.jpg')"><i class="fa-solid fa-music"></i> 악보</button></div>
+                        <div class="hymn-row"><span>112장 그 맑고 환한 밤중에</span> <button class="btn-action" onclick="openSheet('112장', './hyms/112.jpg')"><i class="fa-solid fa-music"></i> 악보</button></div>
+                        <div class="hymn-row"><span>125장 천사들의 노래가</span> <button class="btn-action" onclick="openSheet('125장', './hyms/125.jpg')"><i class="fa-solid fa-music"></i> 악보</button></div>
+                        <div class="hymn-row"><span>118장 영광 나라 천사들아</span> <button class="btn-action" onclick="openSheet('118장', './hyms/118.jpg')"><i class="fa-solid fa-music"></i> 악보</button></div>
+                        <div class="hymn-row"><span>622장 거룩한 밤</span> <button class="btn-action" onclick="openSheet('622장', './hyms/622.jpg')"><i class="fa-solid fa-music"></i> 악보</button></div>
+                    </div>
+                </td>
+            </tr>
+            <tr><td class="item-name">예배 기도</td><td class="item-person">홍윤희</td></tr>
+            <tr><td class="item-name">찬양 (109장 고요한 밤)</td><td class="item-person"><button class="btn-action" onclick="openSheet('109장', './hyms/109.jpg')"><i class="fa-solid fa-music"></i> 악보</button></td></tr>
+            <tr><td class="item-name">교독문 (119. 성탄절 1)</td><td class="item-person"><button class="btn-action red" onclick="openReading()"><i class="fa-solid fa-book-open"></i> 내용보기</button></td></tr>
+        </table>
+
+        <div class="section-header">2부: 말씀과 예식</div>
+        <table class="order-table">
+            <tr><td class="item-name">어린이 성경 동화</td><td class="item-person">영상 순서</td></tr>
+            <tr><td class="item-name">성경 봉독 (미가 5:2-4)</td><td class="item-person">인도자</td></tr>
+            <tr><td class="item-name">말씀 선포: <strong>"베들레헴 에브라다야"</strong></td><td class="item-person">이광복 목사</td></tr>
+            <tr><td class="item-name">신앙 고백 (사도신경)</td><td class="item-person">다함께</td></tr>
+            <tr><td class="item-name">세례 예식</td><td class="item-person">이광복 목사</td></tr>
+        </table>
+
+        <div class="section-header">3부: 봉헌과 파송</div>
+        <table class="order-table">
+            <tr><td class="item-name">찬양 및 봉헌 (115장)<br><small>기쁘다 구주 오셨네</small></td><td class="item-person"><button class="btn-action" onclick="openSheet('115장', './hyms/115.png')"><i class="fa-solid fa-music"></i> 악보</button></td></tr>
+            <tr><td class="item-name">봉헌 기도 및 축도</td><td class="item-person">이광복 목사</td></tr>
+        </table>
+
+        <div class="verse-box">
+            "베들레헴 에브라다야 너는 유다 족속 중에 작을지라도 이스라엘을 다스릴 자가 네게서 내게로 나올 것이라 그의 근본은 상고에, 영원에 있느니라" <br><strong>(미가 5:2)</strong>
+        </div>
+    </div>
+
+    <footer>&copy; 2025 Christmas Service Online.</footer>
+
+    <!-- 악보 팝업 -->
+    <div id="sheetModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('sheetModal')">&times;</span>
+            <h3 id="sheetTitle" style="color:var(--primary-red); margin-top:0;"></h3>
+            <img id="sheetImg" src="" alt="악보 이미지" class="sheet-img">
+        </div>
+    </div>
+
+    <!-- 교독문 팝업 -->
+    <div id="readingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('readingModal')">&times;</span>
+            <h3 style="color:var(--primary-red); margin-top:0;">교독문 119. 성탄절(1)</h3>
+            <div class="reading-box">
+                <p><span class="leader">(사회)</span> 즐거이 소리칠지어다 하늘이여, 노래할지어다 땅이여</p>
+                <p><span class="congregation">(회중)</span> 산들이여 터져 노래할지어다 여호와께서 그의 백성을 위로하셨은즉</p>
+                <p><span class="leader">(사회)</span> 그의 고난 당한 자를 긍휼히 여기실 것임이라</p>
+                <p><span class="congregation">(회중)</span> 보라 내가 속히 오리니 내가 줄 상이 내게 있어 각 사람에게 그가 행한 대로 갚아 주리라</p>
+                <p><span class="leader">(사회)</span> 보라 처녀가 잉태하여 아들을 낳을 것이요 그의 이름은 임마누엘이라 하리라</p>
+                <p style="font-weight:bold; background-color:#fffde7; padding:5px;">(다함께) 지극히 높은 곳에서는 하나님께 영광이요 땅에서는 하나님이 기뻐하신 사람들 중에 평화로다 하니라</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 눈 내리는 효과
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, snowflakes;
+
+        function init() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            snowflakes = [];
+            for (let i = 0; i < 100; i++) {
+                snowflakes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    r: Math.random() * 4 + 1,
+                    d: Math.random() * 1
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.beginPath();
+            for (let i = 0; i < snowflakes.length; i++) {
+                let p = snowflakes[i];
+                ctx.moveTo(p.x, p.y);
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+            }
+            ctx.fill();
+            update();
+        }
+
+        function update() {
+            for (let i = 0; i < snowflakes.length; i++) {
+                let p = snowflakes[i];
+                p.y += Math.cos(p.d) + 1 + p.r / 2;
+                p.x += Math.sin(p.d) * 2;
+                if (p.x > width + 5 || p.x < -5 || p.y > height) {
+                    snowflakes[i] = { x: Math.random() * width, y: -10, r: p.r, d: p.d };
+                }
+            }
+        }
+
+        function animate() {
+            draw();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        animate();
+
+        // 팝업 제어
+        function openSheet(title, src) {
+            document.getElementById('sheetTitle').innerText = title + " 악보";
+            document.getElementById('sheetImg').src = src;
+            document.getElementById('sheetModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openReading() {
+            document.getElementById('readingModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
