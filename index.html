@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라온동행교회 예식 및 서식 아카이브</title>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <style>
+        :root {
+            /* 신뢰감을 주는 블루 계열 컬러 (기존 유지) */
+            --primary-color: #154c79; 
+            --accent-color: #2b7bc6;  
+            --bg-color: #f0f4f8;      
+            
+            /* 강조 박스 색상 */
+            --highlight-bg: #eef7ff;  
+            --highlight-border: #5fa8eb; 
+        }
+        
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(21, 76, 121, 0.08);
+            border-top: 5px solid var(--primary-color);
+        }
+        h1 { 
+            margin: 0; 
+            color: var(--primary-color); 
+            font-size: 1.8rem; 
+            letter-spacing: -0.5px; 
+            font-weight: 800;
+        }
+        p.subtitle { 
+            color: #5d758a;
+            margin-top: 12px; 
+            font-size: 1.05rem; 
+        }
+        
+        /* 섹션 스타일 */
+        .section-box { margin-bottom: 50px; }
+        .section-title {
+            border-bottom: 2px solid #ccdbe8;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* 카드 스타일 */
+        .card {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 16px;
+            padding: 25px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(21, 76, 121, 0.12);
+            border-color: var(--accent-color);
+        }
+
+        /* 중요 문서 강조 (Highlight) */
+        .card.important {
+            background-color: var(--highlight-bg);
+            border: 2px solid var(--highlight-border);
+        }
+        
+        /* 배지 스타일 */
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .badge.liturgy { background: #e3f2fd; color: #1565c0; } /* 예식서 배지 */
+        .badge.admin { background: #f3e5f5; color: #7b1fa2; }   /* 행정 배지 */
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.45;
+            margin-bottom: 15px;
+            word-break: keep-all;
+            color: #2c3e50;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        /* 하단 버튼 스타일 */
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .file-type {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: 600;
+        }
+        .download-icon {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            .container { padding: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>📂 라온동행교회 서식 아카이브</h1>
+            <p class="subtitle">예배의 질서와 교회의 기록을 보관합니다 🏛️</p>
+        </header>
+
+        <div class="section-box">
+            <h2 class="section-title">🕊️ 거룩한 예식 (Liturgies)</h2>
+            <div class="grid">
+                
+                <a href="liturgy/baptism.html" class="card important">
+                    <div>
+                        <span class="badge liturgy">예식서</span>
+                        <div class="card-title">세례 예식서<br>(Baptism Liturgy)</div>
+                        <div class="card-desc">학습, 입교, 유아세례 및 성인세례 예식 순서와 서약문입니다.</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="file-type">📄 PDF / HWP</span>
+                        <span class="download-icon">열람하기 ➡️</span>
+                    </div>
+                </a>
+
+                <a href="liturgy/communion.html" class="card important">
+                    <div>
+                        <span class="badge liturgy">예식서</span>
+                        <div class="card-title">성찬 예식서<br>(Holy Communion)</div>
+                        <div class="card-desc">성찬 제정의 말씀, 분병/분잔 순서 및 집례자 가이드입니다.</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="file-type">📄 PDF / HWP</span>
+                        <span class="download-icon">열람하기 ➡️</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="section-box">
+            <h2 class="section-title">🗂️ 행정 및 회의록 (Administration)</h2>
+            <div class="grid">
+                
+                <a href="admin/general_assembly.html" class="card">
+                    <div>
+                        <span class="badge admin">기록 보관</span>
+                        <div class="card-title">사무총회록 모음<br>(General Assembly)</div>
+                        <div class="card-desc">매년 진행된 정기/임시 사무총회의 회의록 및 결산 보고서 아카이브입니다.</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="file-type">📁 폴더 이동</span>
+                        <span class="download-icon">목록 보기 📂</span>
+                    </div>
+                </a>
+
+                <a href="admin/forms.html" class="card">
+                    <div>
+                        <span class="badge admin">서식</span>
+                        <div class="card-title">각종 신청서 및 양식</div>
+                        <div class="card-desc">교적 등록, 증명서 발급 신청, 재정 청구서 등 행정 서식 모음입니다.</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="file-type">💾 다운로드 모음</span>
+                        <span class="download-icon">바로가기 ➡️</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
