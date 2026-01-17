@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 송구영신예배 - 라온동행교회</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+            word-break: keep-all;
+        }
+        .serif {
+            font-family: 'Noto Serif KR', serif;
+        }
+        .bg-church {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .text-gold {
+            color: #d4af37;
+        }
+        .order-row {
+            padding: 1rem 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .order-row:last-child {
+            border-bottom: none;
+        }
+        .glow {
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+        /* Custom Accordion */
+        details summary {
+            list-style: none;
+            cursor: pointer;
+            outline: none;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .arrow-icon {
+            transform: rotate(180deg);
+        }
+        .expand-content {
+            background-color: #f1f5f9;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #334155;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.6; transform: scale(1); }
+        }
+        .animate-pulse-slow {
+            animation: fadeInOut 4s infinite ease-in-out;
+        }
+        
+        /* Image Placeholder styling */
+        .image-placeholder {
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            border-radius: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="p-0 m-0 text-slate-800 opacity-0 transition-opacity duration-700">
+
+    <!-- Header Section -->
+    <header class="bg-church text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <circle cx="200" cy="200" r="150" stroke="#d4af37" stroke-width="0.5" fill="none" />
+                <path d="M200 50 V350 M50 200 H350" stroke="#d4af37" stroke-width="0.5" />
+            </svg>
+        </div>
+
+        <div class="relative z-10 py-16 px-6 text-center">
+            <div class="mb-6 flex justify-center items-center gap-4">
+                <span class="text-slate-400 text-xl serif">2025</span>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gold animate-pulse-slow">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-gold text-3xl font-bold serif glow">2026</span>
+            </div>
+
+            <p class="text-gold tracking-[0.4em] text-xs mb-3 font-medium opacity-90">라온동행교회</p>
+            <h1 class="serif text-4xl md:text-5xl font-bold mb-6 tracking-tight">송구영신예배</h1>
+            
+            <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"></div>
+            
+            <p class="text-base font-light opacity-90 mb-1">2025년 12월 31일(수) 저녁 9:00</p>
+            <p class="text-sm opacity-70 italic font-light px-4">"주의 은택으로 년사에 관을 씌우시니 주의 길에는 기름방울이 떨어지며"</p>
+        </div>
+    </header>
+
+    <main class="max-w-xl mx-auto px-6 -mt-8 pb-20 relative z-20">
+        
+        <!-- Sermon Info Card -->
+        <section class="mb-10 text-center bg-white p-8 rounded-2xl shadow-xl border-b-4 border-gold">
+            <div class="inline-block px-4 py-1 bg-slate-50 rounded-full text-[10px] font-bold text-slate-400 mb-4 uppercase tracking-[0.2em]">Sermon Topic</div>
+            <h2 class="serif text-3xl font-bold mb-3 text-slate-800">야베스의 기도</h2>
+            <div class="w-8 h-1 bg-gold/30 mx-auto mb-4"></div>
+            <p class="serif text-lg text-slate-600">이광복 목사</p>
+        </section>
+
+        <!-- Order of Worship -->
+        <section class="mb-12">
+            <h2 class="serif text-xl font-bold mb-6 flex items-center justify-center gap-4 text-slate-700">
+                <span class="flex-1 h-[1px] bg-slate-200"></span>
+                예배 순서
+                <span class="flex-1 h-[1px] bg-slate-200"></span>
+            </h2>
+            
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden p-6 border border-slate-100">
+                <div class="order-row flex justify-between items-center">
+                    <span class="text-slate-500 font-medium text-sm">인도</span>
+                    <span class="font-bold">이동현</span>
+                </div>
+
+                <!-- 주기도문 -->
+                <div class="order-row">
+                    <details>
+                        <summary class="flex justify-between items-center w-full">
+                            <span class="text-slate-500 font-medium text-sm">주기도문</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[11px] text-gold font-bold">내용보기</span>
+                                <svg class="arrow-icon w-4 h-4 transition-transform text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </summary>
+                        <div class="expand-content text-center">
+                            하늘에 계신 우리 아버지,<br>
+                            아버지의 이름을 거룩하게 하시며 아버지의 나라가 오게 하시며,<br>
+                            아버지의 뜻이 하늘에서와 같이 땅에서도 이루어지게 하소서.<br>
+                            오늘 우리에게 일용할 양식을 주시고,<br>
+                            우리가 우리에게 잘못한 사람을 용서하여 준 것같이<br>
+                            우리 죄를 용서하여 주시고,<br>
+                            우리를 시험에 빠지지 않게 하시고 악에서 구하소서.<br>
+                            나라와 권능과 영광이 영원히 아버지의 것입니다. 아멘.
+                            <p class="text-right text-[10px] text-slate-400 mt-4">- 새번역 -</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="order-row flex justify-between items-center">
+                    <span class="text-slate-500 font-medium text-sm">찬양</span>
+                    <span class="font-bold">다같이</span>
+                </div>
+                <div class="order-row flex justify-between items-center">
+                    <span class="text-slate-500 font-medium text-sm">기도</span>
+                    <span class="font-bold">정미경</span>
+                </div>
+                <div class="order-row flex justify-between items-center">
+                    <span class="text-slate-500 font-medium text-sm">감사 열매</span>
+                    <span class="font-bold">다같이</span>
+                </div>
+                
+                <!-- 성경봉독 -->
+                <div class="order-row">
+                    <details>
+                        <summary class="flex justify-between items-center w-full">
+                            <span class="text-slate-500 font-medium text-sm">성경봉독 (역대상 4:9-10)</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[11px] text-gold font-bold">본문보기</span>
+                                <svg class="arrow-icon w-4 h-4 transition-transform text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </summary>
+                        <div class="expand-content serif text-left">
+                            <p class="mb-3"><span class="text-gold font-bold mr-2">9</span>야베스는 그의 형제보다 귀중한 자라 그의 어머니가 이름하여 이르되 야베스라 하였으니 이는 내가 수고로이 낳았다 함이었더라</p>
+                            <p><span class="text-gold font-bold mr-2">10</span>야베스가 이스라엘 하나님께 아뢰어 이르되 주께서 내게 복을 주시려거든 나의 지역을 넓히시고 주의 손으로 나를 도우사 나로 환난을 벗어나 내게 근심이 없게 하옵소서 하였더니 하나님이 그가 구하는 것을 허락하셨더라</p>
+                            <p class="text-right text-[10px] text-slate-400 mt-4">- 개역개정 -</p>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 설교 하이라이트 -->
+                <div class="my-6 p-5 bg-slate-50 rounded-xl border-l-4 border-gold flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-gold font-bold uppercase tracking-wider block mb-1">Message</span>
+                        <span class="serif text-xl font-bold text-slate-800">야베스의 기도</span>
+                    </div>
+                    <span class="text-xs text-slate-400 font-light">설교</span>
+                </div>
+
+                <!-- 사도신경 -->
+                <div class="order-row">
+                    <details>
+                        <summary class="flex justify-between items-center w-full">
+                            <span class="text-slate-500 font-medium text-sm">사도신경</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[11px] text-gold font-bold">내용보기</span>
+                                <svg class="arrow-icon w-4 h-4 transition-transform text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </summary>
+                        <div class="expand-content text-center">
+                            나는 전능하신 아버지 하나님, 천지의 창조주를 믿습니다.<br>
+                            나는 그의 유일하신 아들, 우리 주 예수 그리스도를 믿습니다.<br>
+                            그는 성령으로 잉태되어 동정녀 마리아에게서 나시고,<br>
+                            본디오 빌라도에게 고난을 받아 십자가에 못 박혀 죽으시고,<br>
+                            장사된 지 사흘 만에 죽은 자 가운데서 다시 살아나셨으며,<br>
+                            하늘에 오르시어 전능하신 아버지 하나님 우편에 앉아 계시다가,<br>
+                            거기로부터 살아 있는 자와 죽은 자를 심판하러 오십니다.<br>
+                            나는 성령을 믿으며, 거룩한 공교회와 성도의 교제와<br>
+                            죄를 용서받는 것과 몸의 부활과 영생을 믿습니다. 아멘.
+                            <p class="text-right text-[10px] text-slate-400 mt-4">- 새번역 -</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="order-row flex justify-between items-center">
+                    <span class="text-slate-500 font-medium text-sm">나에게 쓰는 편지</span>
+                    <span class="font-bold">다같이</span>
+                </div>
+
+                <!-- 결단찬송 -->
+                <div class="order-row">
+                    <details>
+                        <summary class="flex justify-between items-center w-full">
+                            <span class="text-slate-500 font-medium text-sm">결단찬송 (야베스의 기도)</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[11px] text-gold font-bold">악보보기</span>
+                                <svg class="arrow-icon w-4 h-4 transition-transform text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </summary>
+                        <div class="expand-content text-center">
+                            <div class="relative min-h-[150px] bg-white rounded-lg overflow-hidden border border-slate-200">
+                                <img src="ybspray.jpg" 
+                                     alt="결단찬송 악보" 
+                                     class="w-full h-auto"
+                                     onerror="this.parentElement.innerHTML='<div class=\'image-placeholder\'>악보 이미지를 준비 중입니다.</div>'">
+                            </div>
+                            <p class="text-[11px] text-slate-400 mt-4 italic">이미지를 길게 누르면 저장할 수 있습니다.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="order-row flex justify-between items-center">
+                    <span class="text-slate-500 font-medium text-sm">헌금기도 및 축도</span>
+                    <span class="font-bold">이광복 목사</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Card -->
+        <section class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center">
+            <h3 class="serif text-xl font-bold mb-4 text-slate-800">"주께서 내게 복을 주시려거든"</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-0">
+                2026년 한 해, 우리의 지경을 넓히시고<br>
+                환난을 벗어나 근심이 없게 하시는 하나님의 은혜가<br>
+                라온동행교회 모든 성도님들께 가득하시길 소망합니다.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-12 px-6 text-center text-white/40">
+        <p class="serif text-lg font-bold text-white mb-2">라온동행교회</p>
+        <p class="text-[10px] tracking-widest uppercase mb-8">Joyful Walking Together Church</p>
+        <div class="h-[1px] w-12 bg-slate-800 mx-auto mb-8"></div>
+        <p class="text-[10px] opacity-30 tracking-tight">© 2025-2026 LAON DONGHAENG. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fade-in animation
+            setTimeout(() => {
+                document.body.classList.remove('opacity-0');
+            }, 100);
+
+            // Smooth scroll for details
+            const details = document.querySelectorAll("details");
+            details.forEach((targetDetail) => {
+                targetDetail.addEventListener("click", () => {
+                    details.forEach((detail) => {
+                        if (detail !== targetDetail) {
+                            detail.removeAttribute("open");
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
