@@ -7,12 +7,9 @@
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
     <style>
         :root {
-            /* 신뢰감을 주는 블루 계열 컬러 (기존 유지) */
             --primary-color: #154c79; 
             --accent-color: #2b7bc6;  
             --bg-color: #f0f4f8;      
-            
-            /* 강조 박스 색상 */
             --highlight-bg: #eef7ff;  
             --highlight-border: #5fa8eb; 
         }
@@ -27,10 +24,9 @@
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto; /* 중앙 정렬 핵심 코드 */
         }
 
-        /* 헤더 스타일 */
         header {
             text-align: center;
             margin-bottom: 50px;
@@ -53,7 +49,6 @@
             font-size: 1.05rem; 
         }
         
-        /* 섹션 스타일 */
         .section-box { margin-bottom: 50px; }
         .section-title {
             border-bottom: 2px solid #ccdbe8;
@@ -73,7 +68,6 @@
             gap: 20px;
         }
 
-        /* 카드 스타일 */
         .card {
             background: white;
             border: 1px solid #e1e8ed;
@@ -94,13 +88,11 @@
             border-color: var(--accent-color);
         }
 
-        /* 중요 문서 강조 (Highlight) */
         .card.important {
             background-color: var(--highlight-bg);
             border: 2px solid var(--highlight-border);
         }
         
-        /* 배지 스타일 */
         .badge {
             display: inline-block;
             font-size: 0.75rem;
@@ -109,8 +101,9 @@
             border-radius: 4px;
             margin-bottom: 10px;
         }
-        .badge.liturgy { background: #e3f2fd; color: #1565c0; } /* 예식서 배지 */
-        .badge.admin { background: #f3e5f5; color: #7b1fa2; }   /* 행정 배지 */
+        .badge.liturgy { background: #e3f2fd; color: #1565c0; }
+        .badge.admin { background: #f3e5f5; color: #7b1fa2; }
+        .badge.worship { background: #fff3e0; color: #e65100; } /* 예배순서지용 배지 색상 추가 */
 
         .card-title {
             font-size: 1.25rem;
@@ -128,7 +121,6 @@
             line-height: 1.5;
         }
         
-        /* 하단 버튼 스타일 */
         .card-footer {
             margin-top: auto;
             display: flex;
@@ -157,6 +149,7 @@
 <body>
 
     <div class="container">
+        
         <header>
             <h1>📂 라온동행교회 서식 아카이브</h1>
             <p class="subtitle">예배의 질서와 교회의 기록을 보관합니다 🏛️</p>
@@ -213,7 +206,7 @@
                     <div>
                         <span class="badge admin">서식</span>
                         <div class="card-title">각종 신청서 및 양식</div>
-                        <div class="card-desc">교적 등록, 증명서 발급 신청, 재정 청구서 등 행정 서식 모음입니다.</div>
+                        <div class="card-desc">교적 등록, 증명서 발급 신청 등 서식 모음</div>
                     </div>
                     <div class="card-footer">
                         <span class="file-type">💾 다운로드 모음</span>
@@ -224,15 +217,13 @@
             </div>
         </div>
 
-    </div>
-
-     <div class="section-box">
+        <div class="section-box">
             <h2 class="section-title">🗂️ 특별 예배 순서지</h2>
             <div class="grid">
                 
                 <a href="worship/christmas.html" class="card">
                     <div>
-                        <span class="badge admin">예배순서지</span>
+                        <span class="badge worship">예배순서지</span>
                         <div class="card-title">2025 성탄절 예배순서지<br>(Christmas Worship)</div>
                     </div>
                     <div class="card-footer">
@@ -243,8 +234,8 @@
 
                 <a href="worship/new_years_eve.html" class="card">
                     <div>
-                      <span class="badge admin">예배순서지</span>
-                        <div class="card-title">2025 송구영신 예배순서지<br>(New Year's Eve Worship)</div>
+                      <span class="badge worship">예배순서지</span>
+                        <div class="card-title">2025 송구영신 예배순서지<br>(New Year's Eve)</div>
                     </div>
                     <div class="card-footer">
                         <span class="file-type">📄 인포그래픽</span>
@@ -255,6 +246,5 @@
             </div>
         </div>
 
-    </div>
-</body>
+    </div> </body>
 </html>
