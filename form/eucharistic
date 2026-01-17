@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성찬예식 집례문</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #2c2c2c;
+            --point-color: #a68b5b; /* 은은한 골드톤 */
+            --border-color: #e0dcd0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Nanum Myeongjo', serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            padding: 60px 50px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            letter-spacing: 0.2rem;
+            color: var(--point-color);
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        .scripture-box {
+            background-color: #fdfaf4;
+            padding: 30px;
+            border-top: 2px solid var(--point-color);
+            border-bottom: 2px solid var(--point-color);
+            margin-bottom: 40px;
+            font-style: italic;
+            word-break: keep-all;
+        }
+
+        .instruction {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            word-break: keep-all;
+        }
+
+        .prayer-section {
+            margin: 40px 0;
+            padding: 20px;
+        }
+
+        .prayer-title {
+            font-weight: bold;
+            color: var(--point-color);
+            display: block;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .prayer-content {
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--point-color), transparent);
+            margin: 50px 0;
+            border: none;
+        }
+
+        .holy-communion {
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .holy-communion p {
+            margin-bottom: 25px;
+            word-break: keep-all;
+        }
+
+        .amen {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* 반응형 모바일 스타일 */
+        @media (max-width: 600px) {
+            .container { padding: 40px 20px; }
+            header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>성찬예식</h1>
+    </header>
+
+    <section class="scripture-box">
+        주의 떡이나 잔을 합당하지 않게 먹고 마시는 자는 <br>
+        주의 몸과 피에 대하여 죄를 짓는 것이니라.<br>
+        사람이 자기를 살피고 그 후에야 이 떡을 먹고 이 잔을 마실지니<br>
+        주의 몸을 분별하지 못하고 먹고 마시는 자는 <br>
+        자기의 죄를 먹고 마시는 것이니라. 아멘.
+    </section>
+
+    <div class="instruction">
+        이 시간 성찬예식에 참여하기에 앞서 <br>
+        우리의 죄를 회개하여 이 예식에 합당하게 참여하시길 바랍니다. <br>
+        함께 기도하겠습니다.
+    </div>
+
+    <section class="prayer-section">
+        <span class="prayer-title">[회개기도]</span>
+        <p class="prayer-content">
+            주님! 우리의 죄를 회개하오니 용서하여 주시옵소서. <br>
+            예수님의 이름으로 기도했습니다. <br>
+            <strong>아멘.</strong>
+        </p>
+    </section>
+
+    <hr class="divider">
+
+    <section class="holy-communion">
+        <span class="prayer-title">[떡과 잔을 나누며]</span>
+        <p>
+            주 예수께서 잡히시던 밤에 떡을 가지사 축사하시고 떼어 이르시되 <br>
+            <strong>“이것은 너희를 위하는 내 몸이니 이것을 행하여 나를 기념하라”</strong> 하셨습니다.
+        </p>
+        <p>
+            또한 그와 같이 잔을 가지시고 이르시되 <br>
+            <strong>“이 잔은 내 피로 세운 언약이니 이것을 행하여 마실 때마다 나를 기념하라”</strong> 하셨습니다.
+        </p>
+    </section>
+
+    <div class="instruction" style="margin-top: 40px;">(배종)</div>
+
+    <section class="prayer-section">
+        <p class="prayer-content">
+            너희가 이 떡을 먹으며 이 잔을 마실 때마다 <br>
+            주의 죽으심을 그가 오실 때까지 전하라고 말씀하신 <br>
+            주님의 말씀을 기억하게 하시옵소서. <br>
+            <span class="amen">예수님의 이름으로 기도했습니다. 아멘.</span>
+        </p>
+    </section>
+
+    <footer>
+        &copy; Holy Communion Liturgy
+    </footer>
+</div>
+
+</body>
+</html>
